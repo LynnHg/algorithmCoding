@@ -155,3 +155,44 @@ void main() {
 	int *p = arr;
 	while (p < arr + N) printf("%3d", *p++);
 }
+###########################################################
+     ############计算总平均分和第你个学生成绩###########
+###########################################################
+	void main() {
+		void avg(float *, int);
+		void search(float (*p)[4], int);
+		float score[3][4] = 
+		{
+			{1,2,3,4},
+			{5,6,7,8},
+			{9,10,11,12}
+		};
+		int num;
+		int len = (sizeof score) / (sizeof score[0][0]);
+		avg(*score, len);
+		printf("查询第几个学生的成绩:\n");
+		scanf("%d", &num);
+		search(score, num);
+		system("pause");
+	}
+
+	void avg(float *p, int n) {
+		float avg = 0,sum = 0;
+		float *temp = p;
+		while (p < temp + n) {
+			sum += *p;
+			p++;
+		}
+		avg = sum / n;
+		printf("3位学生的总平均成绩为：%5.1f\n",avg);
+	}
+
+	void search(float (*p)[4], int n) {
+		int i = 0;
+		printf("第%d个学生各科的成绩分别为：\n", n);
+		while (i < 4) {
+			printf("%5.1f",*(*(p + n) + i));	
+			i++;
+		}
+		putchar(10);
+	}
