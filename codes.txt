@@ -109,12 +109,13 @@ void swap(int a[], int n) {
      ############排序算法###########
 #########################################
 ----
-----冒泡排序----
+----冒泡排序----算法平均时间复杂度O(n^2)，稳定排序算法
 ----
 const int N = 10;
 void main() {
 	int arr[N] = { 2,3,1,7,8,5,6,10,9,4 };
 	int i, j;
+
 	for (i = 0; i < N-1; i++)
 	{
 		for (j = 0; j < N - i - 1; j++) {
@@ -123,6 +124,31 @@ void main() {
 				arr[j + 1] = arr[j] ^ arr[j + 1];
 				arr[j] = arr[j] ^ arr[j + 1];
 			}
+		}
+	}
+
+	int *p = arr;
+	while (p < arr + N) printf("%3d", *p++);
+}
+----
+----选择排序----算法平均时间复杂度O(n^2)，不稳定排序算法
+----
+const int N = 10;
+void main() {
+	int arr[N] = { 2,3,1,7,8,5,6,10,9,4 };
+	int i, j, k;
+
+	for (i = 0; i < N-1; i++)
+	{
+		k = i;
+		for (j = i+1; j  < N; j++)
+		{
+			if (arr[j] < arr[k]) k = j;
+		}
+		if (k != i) {
+			arr[k] = arr[i] ^ arr[k];
+			arr[i] = arr[i] ^ arr[k];
+			arr[k] = arr[i] ^ arr[k];
 		}
 	}
 
