@@ -196,3 +196,15 @@ void main() {
 		}
 		putchar(10);
 	}
+############################################
+     ############约瑟夫环问题###########
+############################################
+int n, m, i, s = 0;
+	printf("input number of person and the flag:");
+	scanf("%d%d", &n, &m);
+	for (i = 2; i <= n; i++)
+	{
+		s = (s + m) % i;
+		printf("%d\n", s);
+	}
+	printf("\nThe winner is %d\n", s + 1);
