@@ -275,3 +275,48 @@ void main() {
 	if (days % 5 > 0 && days % 5 < 4) printf("%d年%d月%d日打渔\n",year, month, day);
 	else printf("%d年%d月%d日晒网\n", year, month, day);
 }
+
+####################################
+     ##########判别素数#########
+####################################
+----问题描述
+----素数又称质数。所谓素数是指除了 1 和它本身以外，不能被任何整数整除的数。
+----输入一个整数判断它是否是素数
+----思路分析
+----思路1)：因此判断一个整数m是否是素数，只需把 m 被 2 ~ m-1 之间的每一个整数去除，如果都不能被整除，那么 m 就是一个素数。
+----思路2)：m 不必被 2 ~ m-1 之间的每一个整数去除，只需被 2 ~ 根号m 之间的每一个整数去除就可以了。
+----如果 m 不能被 2 ~ 根号m  间任一整数整除，m 必定是素数。（循环次数更少，执行更快）
+----
+----思路一，最基础的方法----
+----
+int isPrime(int num) {
+	int i = 2;
+	while (i < num) {
+		if (num%i == 0) return 0;
+		i++;	
+	}
+	return 1;
+}
+
+void main() {
+	int num,temp;
+	printf("please input a integer:\n");
+	scanf("%d", &num);
+	temp = isPrime(num);
+	if (temp) printf("%d是素数。\n", num);
+	else printf("%d不是素数。\n", num);
+
+}
+----
+----思路二，循环次数更少，更快----
+----
+int isPrime(int num) {
+	int i = 2,temp;
+	//sqrt需接收double类型参数，强行转换num的类型
+	temp = (int)sqrt((double)num);
+	while (i < temp) {
+		if (num%i == 0) return 0;
+		i++;	
+	}
+	return 1;
+}
