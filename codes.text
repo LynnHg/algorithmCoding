@@ -206,6 +206,7 @@ void main() {
 ----编号为 1，2，3，…，n 的 n 个人围坐一圈，任选一个正整数 m 作为报数上限值，
 ----从第一个人开始按顺时针方向报数，报数到 m 时停止，报数为 m 的人出列。
 ----从出列人的顺时针方向的下一个人开始又从 1 重新报数，如此下去，直到所有人都全部出列为止。
+----
 
 int n, m, i, s = 0;
 	printf("input number of person and the flag:");
@@ -221,6 +222,7 @@ int n, m, i, s = 0;
 ----问题描述
 ----如果一个渔夫从2011年1月1日开始每三天打一次渔，两天晒一次网，
 ----编程实现当输入2011年1月 1日以后的任意一天，输出该渔夫是在打渔还是在晒网。
+----
 
 const int LEAP = 366;
 const int NONLEAP = 365;
@@ -319,4 +321,30 @@ int isPrime(int num) {
 		i++;	
 	}
 	return 1;
+}
+
+####################################
+     #########求水仙花数########
+####################################
+----问题描述
+----“水仙花数”是指一个三位数其各位数字的立方和等于该数本身，例如153是“水仙花数”，因为：153 = 1^3 + 5^3 + 3^3。
+----
+int isDaffodil(int num) {
+	int hundred, tens, single, temp;
+	hundred = num / 100;//百位
+	tens = num % 100 / 10;//十位
+	single = num % 10;//个位
+	temp = hundred*hundred*hundred + tens*tens*tens + single*single*single;
+
+	if (temp == num) return 1;
+	else return 0;
+}
+
+void main() {
+	int num,temp;
+	printf("please input a three-digit integer:\n");
+	scanf("%d", &num);
+	temp = isDaffodil(num);
+	if (temp) printf("%d是水仙花数。\n", num);
+	else printf("%d不是水仙花数。\n", num);
 }
