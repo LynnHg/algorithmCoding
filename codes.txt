@@ -207,3 +207,58 @@ int n, m, i, s = 0;
 		s = (s + m) % i;
 	}
 	printf("\nThe winner is %d\n", s + 1);
+############################################
+     ##########三天打渔两天晒网#########
+############################################
+const int LEAP = 366;
+const int NONLEAP = 365;
+const int initalYear = 2011;
+
+int isLeap(int year) {
+	if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) return 1;
+	else return 0;
+}
+
+int totalDays(int year, int month, int day) {
+	int days=0, i, j;
+	int leap[12] = { 31,29,31,30,31,30,31,31,30,31,30,31 };
+	int nonleap[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+
+	if (isLeap(year)) {
+		for ( i = initalYear; i < year; i++)
+		{
+			days += LEAP;
+		}
+		for (j = 0; j < month - 1; j++)
+		{
+			days += leap[j];
+		}
+
+		days += day;
+	}
+	else {
+		for (i = initalYear; i < year; i++)
+		{
+			days += NONLEAP;
+		}
+		for (j = 0; j < month - 1; j++)
+		{
+			days += leap[j];
+		}
+
+		days += day;
+	}
+
+	return days;
+}
+
+void main() {
+	int year, month, day,days;
+	printf("please input year,month,day:\n");
+	scanf("%d%d%d", &year, &month, &day);
+
+	days = totalDays(year, month, day);
+
+	if (days % 5 > 0 && days % 5 < 4) printf("%d年%d月%d日打渔\n",year, month, day);
+	else printf("%d年%d月%d日晒网\n", year, month, day);
+}
