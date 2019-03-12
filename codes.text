@@ -400,3 +400,23 @@ int reverse(int num) {
 	}
 	return temp;
 }
+####################################
+     #########统计字符########
+####################################
+----问题描述
+----输入一行字符，分别统计出其中字母、数字、空格和其他字符的个数。
+----
+void count() {
+	char c;
+	int count, letters, space, digit, others;
+	count = letters = space = digit = others = 0;
+
+	while ((c = getchar()) != '\n') {
+		count++;
+		if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z') letters++;
+		else if (c >= '0' && c <= '9') digit++;
+		else if (c == ' ') space++;
+		else others++;
+	}
+	printf("共输入%d个字符，其中字母%d个，数字%d，空格%d个，其他字符%d个\n", count, letters, digit, space, others);
+}
