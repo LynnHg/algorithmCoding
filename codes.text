@@ -469,5 +469,19 @@ void main()
 	printf("str1 = %s, str2 = %s\n", str1, str2);
 	swop(&str1, &str2);
 	printf("str1 = %s, str2 = %s\n", str1, str2);
-	system("pause");
+}
+
+----
+----
+void main()
+{
+	char str1[] = "hello";
+	char str2[] = "world";
+	char temp[10];
+
+	printf("str1 = %s, str2 = %s\n", str1, str2);
+	strcpy(temp, str1);
+	strcpy(str1, str2);
+	strcpy(str2, temp);
+	printf("str1 = %s, str2 = %s\n", str1, str2);
 }
