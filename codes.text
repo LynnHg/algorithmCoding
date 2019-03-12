@@ -387,18 +387,19 @@ void main() {
 ----输入一个整数，然后逆序输出
 ----
 int reverse(int num) {
-	int a[20],i,t=1,temp=0;
+	int split[20],i,factor=1,result=0;
 	for (i = 0; num != 0; i++)
 	{
-		a[i] = num % 10;
+		//假设输入1234，数组split倒序存储4,3,2,1
+		split[i] = num % 10;
 		num /= 10;
 	}
 	for(; i>0; i--)
 	{
-		temp += a[i - 1] * t;
-		t *= 10;
+		result += split[i - 1] * factor;
+		factor *= 10;
 	}
-	return temp;
+	return result;
 }
 ####################################
      #########统计字符########
