@@ -316,7 +316,7 @@ int isPrime(int num) {
 	int i = 2,temp;
 	//sqrt需接收double类型参数，强行转换num的类型
 	temp = (int)sqrt((double)num);
-	while (i < temp) {
+	while (i <= temp) {
 		if (num%i == 0) return 0;
 		i++;	
 	}
