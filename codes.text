@@ -448,3 +448,26 @@ void wanNum() {
 		}	
 	}
 }
+
+####################################
+     #########字符串交换########
+####################################
+void swop(char **str1, char **str2)
+{
+	char *temp = NULL;
+
+	temp = *str1;
+	*str1 = *str2;
+	*str2 = temp;
+}
+
+void main()
+{
+	char *str1 = "hello";
+	char *str2 = "world";
+
+	printf("str1 = %s, str2 = %s\n", str1, str2);
+	swop(&str1, &str2);
+	printf("str1 = %s, str2 = %s\n", str1, str2);
+	system("pause");
+}
