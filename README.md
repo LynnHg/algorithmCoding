@@ -1,2 +1,2 @@
 # algorithmCoding
-learn some common algorithms! ^_^
+learn some common algorithms! but just for C language now...
