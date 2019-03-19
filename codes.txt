@@ -515,7 +515,7 @@ void main()
 	while (!feof(fp)) {
 		//开闭原则
 		if (ch == ' ') word = 0;
-		if (notSymbol(ch)) word = 0;
+		else if (!notSymbol(ch)) word = 0;
 		else if (word == 0) {
 			word = 1;
 			count++;
