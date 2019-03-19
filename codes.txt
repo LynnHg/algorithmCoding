@@ -489,3 +489,36 @@ void main()
 	strcpy(str2, temp);
 	printf("str1 = %s, str2 = %s\n", str1, str2);
 }
+#############################################
+     #########打开文件统计单词个数########
+#############################################
+----问题描述
+----打开一个文件，统计其中有多少个单词，单词之间用空格分隔开
+----
+void main()
+{
+	FILE *fp;
+	char ch;
+	int word = 0, count = 0;
+	//words.txt中内容:I am a boy and I am 22 years old!
+	if ((fp = fopen("words.txt", "r")) == NULL) {
+		printf("file cant open.\n");
+		exit(0);
+	}
+
+	ch = fgetc(fp);
+	while (!feof(fp)) {
+		//开闭原则
+		if (ch == ' ') word = 0;
+		else if (word == 0) {
+			word = 1;
+			count++;
+		}
+		putchar(ch);
+		ch = fgetc(fp);
+	}
+	putchar(10);
+	fclose(fp);
+	//输出：There are 10 words in the file.
+    printf("There are %d words in the file.\n", count);
+}
