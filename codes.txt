@@ -490,10 +490,12 @@ void main()
 	printf("str1 = %s, str2 = %s\n", str1, str2);
 }
 #############################################
-     #########打开文件统计单词个数########
+     #########统计单词个数########
 #############################################
 ----问题描述
-----打开一个文件，统计其中有多少个单词，单词之间用空格或标点分隔开
+----打开一个文件或从键盘输入，统计其中有多少个单词，单词之间用空格或标点分隔开
+----
+----文件读入
 ----
 int notSymbol(char c) {
 	if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || c>='0' && c<='9') return 1;
@@ -527,4 +529,36 @@ void main()
 	fclose(fp);
 	//输出：There are 10 words in the file.
 	printf("There are %d words in the file.\n", count);
+}
+----
+----从键盘输入
+----
+
+int notSymbol(char c) {
+	if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || c>='0' && c<='9') return 1;
+	else return 0;
+}
+
+void main()
+{
+	char ch;
+	char str[80];
+	printf("please input string:\n");
+	gets_s(str);
+	int i = 0, word = 0, count = 0;
+	ch = str[i];
+	while (ch != '\0') {
+		if (ch == ' ') word = 0;
+		else if (!notSymbol(ch)) word = 0;
+		else if (word == 0) {
+			word = 1;
+			count++;
+		}
+		putchar(ch);
+		i++;
+		ch = str[i];
+	}
+	putchar(10);
+	printf("There are %d words in the file.\n", count);
+	system("pause");
 }
