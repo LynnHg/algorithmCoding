@@ -234,48 +234,50 @@ int isLeap(int year) {
 }
 
 int totalDays(int year, int month, int day) {
-	int days=0, i, j;
-	int leap[12] = { 31,29,31,30,31,30,31,31,30,31,30,31 };//闰年月份
-	int nonleap[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };//平年月份
+	int i, j, days = 0;
+	int leap[12] = { 31,29,31,30,31,30,31,31,30,31,30,31 };
+	int nonleap[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
 
 	if (isLeap(year)) {
-		for ( i = initalYear; i < year; i++)
+		for ( i = 0; i < month-1; i++)
 		{
-			days += LEAP;
+			days += leap[i];
 		}
-		for (j = 0; j < month - 1; j++)
-		{
-			days += leap[j];
-		}
-
-		days += day;
 	}
 	else {
-		for (i = initalYear; i < year; i++)
+		for (i = 0; i < month - 1; i++)
 		{
-			days += NONLEAP;
+			days += leap[i];
 		}
-		for (j = 0; j < month - 1; j++)
-		{
-			days += leap[j];
-		}
-
-		days += day;
 	}
 
+	for ( i = initalYear; i < year; i++)
+	{
+		if (isLeap(year)) {
+			days += LEAP;
+		}
+		else {
+			days += NONLEAP;
+		}
+	}
+
+	days += day;
 	return days;
 }
 
-void main() {
-	int year, month, day,days;
+void main()
+{
+	int year, month, day, days;
 	printf("please input year,month,day:\n");
 	scanf("%d%d%d", &year, &month, &day);
 
 	days = totalDays(year, month, day);
 
 	//余数为1、2、3打渔否则晒网
-	if (days % 5 > 0 && days % 5 < 4) printf("%d年%d月%d日打渔\n",year, month, day);
+	if (days % 5 > 0 && days % 5 < 4) printf("%d年%d月%d日打渔\n", year, month, day);
 	else printf("%d年%d月%d日晒网\n", year, month, day);
+
+	system("pause");
 }
 
 ####################################
