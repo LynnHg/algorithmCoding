@@ -387,7 +387,7 @@ void main() {
 ################################
 ----问题描述
 ----输入一个整数，然后逆序输出
-----
+----1
 int reverse(int num) {
 	int split[20],i,factor=1,result=0;
 	for (i = 0; num != 0; i++)
@@ -402,6 +402,19 @@ int reverse(int num) {
 		factor *= 10;
 	}
 	return result;
+}
+
+----
+----2
+----
+int reverse(int num){
+	int t,m=0;
+	do{
+		t = num % 10;
+		m = m*10 + t;
+		num /= 10;
+	}while(num);
+	return m;
 }
 ####################################
      #########统计字符########
