@@ -619,11 +619,10 @@ void main(){
      #########删除字符数组指定字符########
 #############################################
 void mydel(char a[],char c){
-	int i,j,index;
+	int i,j;
 	for(i=0;a[i] != 0;i++){
 		if (a[i] == c){
-			index = i;
-			for	(j=i;a[j]!=0;j++){
+			for(j=i;a[j]!=0;j++){
 				a[j] = a[j+1];
 			}
 			a[j] = '\0';
