@@ -628,7 +628,6 @@ void mydel(char a[],char c){
 			for(j=i;a[j]!=0;j++){
 				a[j] = a[j+1];
 			}
-			a[j] = '\0';
 			i--;
 		}
 	}
