@@ -25,3 +25,35 @@ void main(){
 	printf("%5.2f",x0);
 	system("pause");
 }
+
+//弦截法求方程根
+float f(float x) {
+	return x*x*x-5*x*x+16*x-80;
+}
+
+float xpoint(float x1, float x2){
+	return (x1*f(x2)-x2*f(x1))/(f(x2)-f(x1));
+}
+
+float root(float x1, float x2){
+	float x,y,y1;
+	y1 = f(x1);
+	do{
+		x = xpoint(x1,x2);
+		y = f(x);
+
+		if(y*y1>0){
+			y1 = y;
+			x1 = x;
+		}else x2 = x;
+	}while(fabs(y)>=1e-4);
+	return x;
+}
+
+void main(){
+	float x;
+	x = root(2.0,6.0);
+	printf("%f",x);
+
+	system("pause");
+}
