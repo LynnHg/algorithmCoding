@@ -1,4 +1,4 @@
-```C
+
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -24,4 +24,4 @@ void main(){
 	//防止黑框闪退
 	system("pause");
 }
-```
+
