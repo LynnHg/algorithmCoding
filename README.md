@@ -1,5 +1,5 @@
 # C语言常用算法示例
->实例
->>实例
->>>实例
-learning some common algorithms! but just for C language now...
+
+----
+
++ c语言常用算法代码，帮助学习者掌握一些常用的c语言算法。
